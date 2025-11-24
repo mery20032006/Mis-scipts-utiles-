@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mis Scripts Útiles</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Mis Scripts Útiles (Linux & PowerShell)</h1>
+    <p>Ejemplos rápidos — copia, filtra y agrega tus propios scripts.</p>
+  </header>
+
+  <nav class="filters">
+    <button data-filter="all" class="active">Todos</button>
+    <button data-filter="linux">Linux</button>
+    <button data-filter="powershell">PowerShell</button>
+  </nav>
+
+  <main>
+    <section id="scripts-list">
+      <!-- Ejemplo de tarjetas existentes -->
+      <article class="script-card" data-category="linux">
+        <h2>📌 Linux — Limpieza del sistema</h2>
+        <pre><code>sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y</code></pre>
+        <p>Actualiza el sistema, instala actualizaciones y limpia paquetes que ya no se usan.</p>
+        <div class="actions">
+          <button class="copy-btn">Copiar</button>
+        </div>
+      </article>
+
+      <article class="script-card" data-category="linux">
+        <h2>📌 Linux — Buscar archivos grandes</h2>
+        <pre><code>find / -type f -size +100M 2>/dev/null</code></pre>
+        <p>Encuentra archivos mayores a 100 MB.</p>
+        <div class="actions">
+          <button class="copy-btn">Copiar</button>
+        </div>
+      </article>
+
+      <article class="script-card" data-category="powershell">
+        <h2>📌 PowerShell — Listar procesos pesados</h2>
+        <pre><code>Get-Process | Sort-Object CPU -Descending | Select-Object -First 10</code></pre>
+        <p>Muestra los 10 procesos que más CPU consumen.</p>
+        <div class="actions">
+          <button class="copy-btn">Copiar</button>
+        </div>
+      </article>
+    </section>
+
+    <aside class="add-form">
+      <h3>Añadir nuevo script</h3>
+      <form id="add-script-form">
+        <label>
+          Título
+          <input type="text" id="new-title" required />
+        </label>
+
+        <label>
+          Categoría
+          <select id="new-category">
+            <option value="linux">Linux</option>
+            <option value="powershell">PowerShell</option>
+          </select>
+        </label>
+
+        <label>
+          Código
+          <textarea id="new-code" rows="5" required></textarea>
+        </label>
+
+        <label>
+          Descripción (opcional)
+          <input type="text" id="new-desc" />
+        </label>
+
+        <button type="submit">Agregar script</button>
+      </form>
+    </aside>
+  </main>
+
+  <footer>
+    <p>Creado por mery • WSL + HTML/CSS/JS</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
+
